@@ -16,6 +16,6 @@ services:
       -v /sys:/host/sys 
       -v /var/run/docker.sock:/var/run/docker.sock 
       -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
-      ghcr.io/gitdeath/device-mapping-manager:master
+      ghcr.io/mels0n/device-mapping-manager:master
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

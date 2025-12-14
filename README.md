@@ -14,7 +14,7 @@ docker run -d --restart always --name device-manager --privileged \
   --cgroupns=host --pid=host --userns=host \
   -v /sys:/host/sys -v /var/run/docker.sock:/var/run/docker.sock \
   -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
-  ghcr.io/gitdeath/device-mapping-manager:master
+  ghcr.io/mels0n/device-mapping-manager:master
 ```
 
 ### Requirements
@@ -34,12 +34,12 @@ docker stop device-manager || true
 docker rm device-manager || true
 
 # Pull latest image
-docker pull ghcr.io/gitdeath/device-mapping-manager:master
+docker pull ghcr.io/mels0n/device-mapping-manager:master
 
 # Run new version
 docker run -d --restart always --name device-manager --privileged \
   --cgroupns=host --pid=host --userns=host \
   -v /sys:/host/sys -v /var/run/docker.sock:/var/run/docker.sock \
   -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
-  ghcr.io/gitdeath/device-mapping-manager:master
+  ghcr.io/mels0n/device-mapping-manager:master
 ```
