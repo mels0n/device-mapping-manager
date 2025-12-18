@@ -1,9 +1,12 @@
-I've forked to take advantage of the startup PR (and maintain for my own needs) that wasn't merged from the original (https://github.com/allfro/device-mapping-manager.)
-
-
 # device-mapping-manager
 
 This maps and enables devices into containers running on docker swarm. It is currently only compatible with linux systems that use cgroup v1 and v2.
+
+## Features
+
+- **Startup Synchronization**: Automatically detects and processes existing containers upon startup. This ensures that mappings are restored even if the manager is restarted, a feature merged from pending PRs.
+- **Systemd Reload Resilience**: Monitors the system bus for `systemd` reload events. If a reload resets the cgroup maps, this manager detects it and re-applies the device rules to ensure containers maintain access to their devices.
+- **Modern Docker Support**: Optimized for recent Docker versions, supports Cgroup v2, and built with the latest Go toolchain.
 
 ## Usage
 
@@ -43,3 +46,9 @@ docker run -d --restart always --name device-manager --privileged \
   -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
   ghcr.io/mels0n/device-mapping-manager:master
 ```
+
+## Credits
+
+I've forked this project to maintain it for my own needs and to include critical fixes that were not merged into the original repository.
+
+Original Project: [allfro/device-mapping-manager](https://github.com/allfro/device-mapping-manager)
